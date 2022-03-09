@@ -78,7 +78,7 @@ st.markdown("""
 
 .title{
     height: 3em;
-    margin: 1em auto;
+    margin: .5em 0 1em 0;
 }
 </style>
 """, unsafe_allow_html=True)
