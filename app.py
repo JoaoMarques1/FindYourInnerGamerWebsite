@@ -10,7 +10,7 @@ url = 'https://find-your-inner-gamer-7oqykbx6lq-ew.a.run.app/predict'
 st.set_page_config(
     page_title="Find Your Inner Gamer!",
     page_icon="🕹️",
-    layout="wide"
+    layout="wide",
 )
 
 # setting default value for clik variable to False
