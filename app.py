@@ -139,6 +139,7 @@ a:hover{{
 }}
 
 .css-wq85zr:hover{{
+    border-color: #3895d3;
     color: #3895d3;
 }}
 
