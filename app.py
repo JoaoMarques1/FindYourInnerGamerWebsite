@@ -75,12 +75,34 @@ p {{
 }}
 
 .desc {{
+    font-size: 1.2rem;
     line-height: 1.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}}
+
+.desc:hover {{
+    opacity: 1;
+}}
+
+.description {{
+    position: relative;
+    width: 55em;
     margin-bottom: 2em;
 }}
 
-.image {{
-    width: 55em;
+.image{{
+    display: block;
+    width: 100%;
 }}
 
 .symbols{{
@@ -97,15 +119,16 @@ p {{
 
 a {{
     text-decoration: none;
+    text-shadow: 1px 1px white;
     font-size: .7em;
     font-family: 'Press Start 2P';
 }}
 
 a:hover{{
+    text-shadow: 2px 2px white;
     text-decoration: none;
     font-size: .9em;
 }}
-
 
 .stApp {{
     background: rgba(0, 0, 0, 0.6) url(https://images.unsplash.com/photo-1498736297812-3a08021f206f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2271&q=80);
@@ -124,7 +147,7 @@ if clik:
     i = 0
 
     reviews_scale = {
-        "No reviews": '',
+        "No reviews": 'No reviews',
         "Overwhelmingly Negative": '',
         "Very Negative": '',
         "Negative": '',
@@ -156,22 +179,13 @@ if clik:
 
         tags = tags.replace(',', ', ')
 
-        if review == 'no value':
-            review = 'No reviews'
-
         cols[i].markdown(f"<h1><a href='{url}'>{game}</a></h1><p class='stars'>{reviews_scale[review]}</p>", unsafe_allow_html=True)
 
-        # expan_tags = cols[i].expander("Game Tags")
-        # expan_tags.markdown(f"<p>{tags}</p>", unsafe_allow_html=True)
+        expan_tags = cols[i].expander("Game Tags")
+        expan_tags.markdown(f"<p>{tags}</p>", unsafe_allow_html=True)
 
-        # cols[i].image(get_img(url),
-        #             use_column_width=True, # Manually Adjust the width of the image as per requirement
-        # )
 
-        cols[i].markdown(f"<div class='description'> <img  class='image' src='{get_img(url)}'> </div>", unsafe_allow_html=True)
-
-        # expan_desc = cols[i].expander("Game Description")
-        # expan_desc.markdown(f"<p class='desc'>{desc}</p>", unsafe_allow_html=True)
+        cols[i].markdown(f"<div class='description'> <img  class='image' src='{get_img(url)}'> <p class='desc'>{desc}</p> </div>", unsafe_allow_html=True)
 
         if i == 0:
             i = 2
