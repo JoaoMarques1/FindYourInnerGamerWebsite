@@ -129,7 +129,7 @@ if clik:
 
         row = df[df['name']== game]
         url = row['url'].iloc[0]
-        tags = row['popular_tags'].iloc[0]
+        tags = row['popular_tags'].iloc[0].replace(',', ', ')
         desc = row['desc_snippet'].iloc[0]
         review = row['reviews'].iloc[0]
 
