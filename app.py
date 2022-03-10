@@ -143,7 +143,7 @@ a:hover{{
     color: #3895d3;
 }}
 
-..css-wq85zr:focus{{
+.css-wq85zr:focus{{
     box-shadow: #3895d3 0px 0px 0px 0.2rem
 }}
 
