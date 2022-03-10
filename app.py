@@ -130,6 +130,14 @@ a:hover{{
     font-size: .9em;
 }}
 
+.streamlit-expanderHeader:hover{{
+    color: #3895d3;
+}}
+
+.streamlit-expanderHeader:hover svg{{
+    color: #3895d3;
+}}
+
 .stApp {{
     background: rgba(0, 0, 0, 0.6) url(https://images.unsplash.com/photo-1498736297812-3a08021f206f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2271&q=80);
     background-size: cover;
