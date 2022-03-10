@@ -55,7 +55,7 @@ with st.sidebar:
                 pred = ''
             else:
                 pred = response.json()
-            
+
             clik = True
 
 
@@ -130,7 +130,7 @@ if clik:
         "Overwhelmingly Positive": ' ♥︎ '*5
     }
 
-    
+
     for game in pred.get('title', ['', ''])[1:]:
 
         row = df[df['name']== game]
