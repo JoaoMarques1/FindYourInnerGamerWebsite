@@ -51,7 +51,11 @@ with st.sidebar:
             st.markdown("<p class='symbols'>♠︎ → Negative</p>", unsafe_allow_html=True)
             st.markdown("<p class='symbols'>♥︎ → Positive</p>", unsafe_allow_html=True)
             response = requests.get(url, params)
-            pred = response.json()
+            if response.status_code != 200:
+                pred = ''
+            else:
+                pred = response.json()
+            
             clik = True
 
 
@@ -114,6 +118,7 @@ if clik:
     i = 0
 
     reviews_scale = {
+        "No reviews": '',
         "Overwhelmingly Negative": ' ♠︎ '*5,
         "Very Negative": ' ♠︎ '*4 + ' ♤ ',
         "Negative": ' ♠︎ '*3 + ' ♤ '*2,
@@ -125,13 +130,22 @@ if clik:
         "Overwhelmingly Positive": ' ♥︎ '*5
     }
 
-    for game in pred['title'][1:]:
+    
+    for game in pred.get('title', ['', ''])[1:]:
 
         row = df[df['name']== game]
         url = row['url'].iloc[0]
-        tags = row['popular_tags'].iloc[0].replace(',', ', ')
+        tags = row['popular_tags'].iloc[0]
         desc = row['desc_snippet'].iloc[0]
         review = row['reviews'].iloc[0]
+
+        if isinstance(tags, float):
+            tags = "No tags"
+
+        tags = tags.replace(',', ', ')
+
+        if review == 'no value':
+            review = 'No reviews'
 
         cols[i].markdown(f"<h1><a href='{url}'>{game}</a></h1>", unsafe_allow_html=True)
         cols[i].markdown(f"<p>{tags}</p>", unsafe_allow_html=True)
