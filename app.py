@@ -90,14 +90,23 @@ p {{
     opacity: 0;
 }}
 
-.desc:hover {{
+.desc:hover{{
     opacity: 1;
 }}
 
 .description {{
     position: relative;
-    width: 55em;
+    left: 1em;
+    width: 53em;
     margin-bottom: 2em;
+    transition: 1.5s ease-in-out;
+}}
+
+.description:hover,
+.description:focus {{
+	transform: scale(1.2, 1.2);
+	transition: 1.5s ease-in-out;
+	box-shadow: 2px 2px 2px 2px rgba( 255, 255, 255, 0.3);
 }}
 
 .image{{
@@ -130,15 +139,18 @@ a:hover{{
     font-size: .9em;
 }}
 
-.streamlit-expanderHeader:hover{{
+.streamlit-expanderHeader:hover
+.streamlit-expanderHeader:focus{{
     color: #3895d3;
 }}
 
-.streamlit-expanderHeader:hover svg{{
+.streamlit-expanderHeader:hover svg
+.streamlit-expanderHeader:focus svg{{
     color: #3895d3;
 }}
 
-.css-wq85zr:hover{{
+.css-wq85zr:hover
+.css-wq85zr:focus{{
     border-color: #3895d3;
     color: #3895d3;
 }}
